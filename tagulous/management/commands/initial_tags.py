@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-from django.core.management.base import BaseCommand, NoArgsCommand, CommandError
+from django.core.management.base import BaseCommand, CommandError
 from django.utils import six
 
 # Abstract model lookup for django compatibility
