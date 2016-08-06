@@ -467,6 +467,10 @@ class TagField(BaseTagField, models.ManyToManyField):
         where the pk attribute is the tag string - a bit of a hack, but avoids
         monkey-patching Django.
         """
+
+        if django.VERSION >= (1, 10):
+            return [getattr(obj, self.attname).get_tag_string()]
+
         class FakeObject(object):
             """
             FakeObject so m2d can check obj.pk (django <= 1.4)
